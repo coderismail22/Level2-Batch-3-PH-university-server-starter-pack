@@ -15,7 +15,13 @@ const app: Application = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
+// Middleware to log cookies
+// app.use((req, res, next) => {
+//   console.log('Cookies:', req.cookies);
+//   next();
+// });
+
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 // application routes
 app.use('/api/v1', router);
